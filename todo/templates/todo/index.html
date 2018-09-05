@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+  <body>
+<div class="page-header">
+    <h1><a href="/">Купить на воздухофлотский</a></h1>
+</div>
+  <div class="container">
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Наименование</th>
+      <th scope="col">Описание</th>
+      <th scope="col">Размеры</th>
+      <th scope="col">Количество</th>
+      <th scope="col">Ожидаемая цена</th>
+      <th scope="col">Дата добавления</th>
+      <th scope="col">Сроки до</th>
+    </tr>
+  </thead>
+{% for item in items %}
+  <tr>
+    <th>{{item.title}}</th>
+    <th>{{item.description}}</th>
+    <th>{{item.sizes}}</th>
+    <th>{{item.number}}</th>
+    <th>{{item.estimate_price}}</th>
+    <th>{{item.created_date}}</th>
+    <th>{{item.estimate_date}}</th>
+  </tr>
+{% endfor %}
+</table>
+      <a href="{% url 'add_new' %}"><span class="glyphicon add"></span>Добавить</a>
+</div>
+  </body>
+</html>
